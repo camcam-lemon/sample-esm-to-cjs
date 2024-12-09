@@ -1,0 +1,28 @@
+{
+  "name": "sample-esm-to-cjs",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "start-dist": "node dist/index.js",
+    "build": "rm -rf dist && tsc",
+    "mermaid-esm-to-cjs": "rm -rf src/mermaid-cli && npm run mermaid:cp && npm run mermaid:build",
+    "mermaid:cp": "cp -r ./node_modules/@mermaid-js/mermaid-cli ./src/mermaid-cli",
+    "mermaid:build": "babel ./src/mermaid-cli/src --out-file ./src/mermaid-cli/src/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.4.2",
+    "puppeteer": "^23.10.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
